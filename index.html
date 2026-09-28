@@ -1,0 +1,1941 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI TechHub | Share. Learn. Innovate.</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 72px;
+            padding: 0 7%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .logo span {
+            color: #6366f1;
+        }
+
+        .navbar nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .navbar nav a:hover {
+            color: #6366f1;
+        }
+
+        .share-nav-btn {
+            border: none;
+            background: #6366f1;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .share-nav-btn:hover {
+            background: #4f46e5;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 27px;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 570px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #ffffff,
+                    #f5f3ff
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-label {
+            color: #6366f1;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #6366f1;
+        }
+
+        .hero p {
+            max-width: 680px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 14px 23px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .primary-btn:hover {
+            background: #4f46e5;
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #4f46e5;
+            border: 1px solid #6366f1;
+            padding: 14px 23px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+
+        /* ================= STATS ================= */
+
+        .stats {
+            padding: 35px 7%;
+            background: white;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .stat h2 {
+            color: #6366f1;
+            font-size: 32px;
+        }
+
+        .stat p {
+            color: #6b7280;
+        }
+
+
+        /* ================= SECTION ================= */
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title .small {
+            color: #6366f1;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 8px;
+            color: #111827;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            margin-top: 10px;
+        }
+
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .category-btn {
+            padding: 10px 18px;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 25px;
+            color: #374151;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #6366f1;
+            color: white;
+            border-color: #6366f1;
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto 45px;
+            display: flex;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px 0 0 8px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            border: none;
+            padding: 0 22px;
+            background: #6366f1;
+            color: white;
+            border-radius: 0 8px 8px 0;
+        }
+
+
+        /* ================= BLOG GRID ================= */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: #e0e7ff;
+        }
+
+        .blog-content {
+            padding: 22px;
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 5px 11px;
+            border-radius: 20px;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .blog-content h3 {
+            font-size: 21px;
+            margin: 13px 0 8px;
+            color: #111827;
+        }
+
+        .blog-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .blog-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-btn {
+            border: none;
+            background: none;
+            color: #6366f1;
+            font-weight: bold;
+        }
+
+        .like-btn {
+            border: none;
+            background: #f3f4f6;
+            padding: 7px 11px;
+            border-radius: 20px;
+        }
+
+        .like-btn.liked {
+            color: #ef4444;
+        }
+
+
+        /* ================= SHARE BANNER ================= */
+
+        .share-banner {
+            margin-top: 60px;
+            padding: 45px;
+            border-radius: 15px;
+            background: #111827;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .share-banner h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .share-banner p {
+            color: #d1d5db;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #111827;
+            color: white;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            margin: 12px 0 20px;
+        }
+
+        .about-content p {
+            color: #d1d5db;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+
+        /* ================= FORM MODAL ================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-box {
+            max-width: 700px;
+            background: white;
+            margin: 40px auto;
+            border-radius: 14px;
+            padding: 35px;
+            position: relative;
+        }
+
+        .modal-box h2 {
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            border: none;
+            background: none;
+            font-size: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-blog {
+            width: 100%;
+            padding: 14px;
+            background: #6366f1;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+
+        /* ================= ARTICLE MODAL ================= */
+
+        .article-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            z-index: 3000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .article-box {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 14px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .article-box h2 {
+            font-size: 35px;
+            margin: 15px 0;
+        }
+
+        .article-box p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .article-box h3 {
+            margin: 25px 0 10px;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #030712;
+            color: white;
+            text-align: center;
+            padding: 45px 7% 25px;
+        }
+
+        footer h2 span {
+            color: #818cf8;
+        }
+
+        footer p {
+            color: #9ca3af;
+            margin-top: 8px;
+        }
+
+        .socials {
+            margin: 20px 0;
+        }
+
+        .socials a {
+            color: #d1d5db;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 950px) {
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+        }
+
+
+        @media(max-width: 650px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .navbar nav {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .navbar nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .share-nav-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .share-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+            }
+
+            .search-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-container input,
+            .search-container button {
+                border-radius: 8px;
+                padding: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>AI</span> TechHub
+        </div>
+
+        <nav id="navMenu">
+
+            <a href="#home">Home</a>
+
+            <a href="#blogs">Blogs</a>
+
+            <a href="#categories">Categories</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <button
+            class="share-nav-btn"
+            onclick="openShareModal()"
+        >
+            ✍️ Share Your Blog
+        </button>
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                AI & TECHNOLOGY COMMUNITY
+            </div>
+
+            <h1>
+                Learn.
+                <span>Share.</span>
+                Innovate.
+            </h1>
+
+            <p>
+                AI TechHub is a community where students,
+                developers and technology enthusiasts can
+                discover useful articles and share their
+                own knowledge about Artificial Intelligence
+                and modern technology.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#blogs"
+                    class="primary-btn"
+                >
+                    Explore Blogs →
+                </a>
+
+                <button
+                    class="secondary-btn"
+                    onclick="openShareModal()"
+                >
+                    ✍️ Share Your Knowledge
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <h2 id="blogCount">
+                6
+            </h2>
+
+            <p>
+                Published Blogs
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>
+                5+
+            </h2>
+
+            <p>
+                Technology Categories
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h2>
+                ∞
+            </h2>
+
+            <p>
+                Ideas to Share
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= BLOGS ================= -->
+
+    <section
+        id="blogs"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <div class="small">
+                DISCOVER
+            </div>
+
+            <h2>
+                Latest Blogs
+            </h2>
+
+            <p>
+                Read what our community is sharing.
+            </p>
+
+        </div>
+
+
+        <!-- CATEGORIES -->
+
+        <div
+            id="categories"
+            class="categories"
+        >
+
+            <button
+                class="category-btn active"
+                onclick="filterBlogs('All', this)"
+            >
+                All
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterBlogs('AI', this)"
+            >
+                🤖 AI
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterBlogs('Programming', this)"
+            >
+                💻 Programming
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterBlogs('Web Development', this)"
+            >
+                🌐 Web Development
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="filterBlogs('Technology', this)"
+            >
+                🚀 Technology
+            </button>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search articles..."
+                onkeyup="searchBlogs()"
+            >
+
+            <button onclick="searchBlogs()">
+                🔍 Search
+            </button>
+
+        </div>
+
+
+        <!-- BLOG GRID -->
+
+        <div
+            id="blogGrid"
+            class="blog-grid"
+        ></div>
+
+
+        <!-- SHARE BANNER -->
+
+        <div class="share-banner">
+
+            <div>
+
+                <h2>
+                    Have something to share?
+                </h2>
+
+                <p>
+                    Write about AI, programming,
+                    technology or your latest project
+                    and share it with the community.
+                </p>
+
+            </div>
+
+            <button
+                class="primary-btn"
+                onclick="openShareModal()"
+            >
+                ✍️ Write a Blog
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section
+        id="about"
+        class="section about"
+    >
+
+        <div class="about-content">
+
+            <div class="small">
+                ABOUT AI TECHHUB
+            </div>
+
+            <h2>
+                A Place to Learn & Share
+            </h2>
+
+            <p>
+                AI TechHub is designed as a technology
+                blogging community for students,
+                developers and technology enthusiasts.
+            </p>
+
+            <p>
+                You can read articles written by other
+                users or publish your own knowledge,
+                tutorials, project experiences and
+                technology ideas.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section
+        id="contact"
+        class="section"
+    >
+
+        <div class="section-title">
+
+            <div class="small">
+                CONTACT
+            </div>
+
+            <h2>
+                Get In Touch
+            </h2>
+
+        </div>
+
+
+        <form
+            class="contact-form"
+            onsubmit="sendContact(event)"
+        >
+
+            <input
+                type="text"
+                id="contactName"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="contactEmail"
+                placeholder="Your Email"
+                required
+            >
+
+            <textarea
+                id="contactMessage"
+                placeholder="Your Message"
+                required
+            ></textarea>
+
+            <button
+                class="submit-blog"
+                type="submit"
+            >
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h2>
+            <span>AI</span> TechHub
+        </h2>
+
+        <p>
+            Learn. Share. Innovate.
+        </p>
+
+        <div class="socials">
+
+            <a href="#">
+                GitHub
+            </a>
+
+            <a href="#">
+                LinkedIn
+            </a>
+
+            <a href="#">
+                Instagram
+            </a>
+
+        </div>
+
+        <p>
+            © 2026 AI TechHub. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= SHARE BLOG MODAL ================= -->
+
+    <div
+        id="shareModal"
+        class="modal"
+    >
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                onclick="closeShareModal()"
+            >
+                ×
+            </button>
+
+            <h2>
+                ✍️ Share Your Blog
+            </h2>
+
+            <p style="color:#6b7280;margin-bottom:25px;">
+                Share your knowledge with the AI TechHub community.
+            </p>
+
+
+            <form
+                id="blogForm"
+                onsubmit="publishBlog(event)"
+            >
+
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="authorName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Blog Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="blogTitle"
+                        placeholder="Enter blog title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select
+                        id="blogCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="AI">
+                            Artificial Intelligence
+                        </option>
+
+                        <option value="Programming">
+                            Programming
+                        </option>
+
+                        <option value="Web Development">
+                            Web Development
+                        </option>
+
+                        <option value="Technology">
+                            Technology
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Image URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="blogImage"
+                        placeholder="https://example.com/image.jpg"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Short Description
+                    </label>
+
+                    <textarea
+                        id="blogDescription"
+                        placeholder="Write a short description..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Blog Content
+                    </label>
+
+                    <textarea
+                        id="blogContent"
+                        placeholder="Write your complete article here..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-blog"
+                >
+                    🚀 Publish Blog
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ARTICLE MODAL ================= -->
+
+    <div
+        id="articleModal"
+        class="article-modal"
+    >
+
+        <div class="article-box">
+
+            <button
+                class="close"
+                onclick="closeArticle()"
+            >
+                ×
+            </button>
+
+            <div id="articleContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ================= DEFAULT BLOGS ================= */
+
+        const defaultBlogs = [
+
+            {
+                id: 1,
+                title: "What is Artificial Intelligence?",
+                category: "AI",
+                author: "AI TechHub",
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
+                description: "Learn what Artificial Intelligence is and how AI is changing modern technology.",
+                content: `
+                    <p>
+                        Artificial Intelligence is a field of computer
+                        science focused on creating systems that can
+                        perform tasks that normally require human
+                        intelligence.
+                    </p>
+
+                    <p>
+                        AI can be used for language processing,
+                        image recognition, recommendation systems,
+                        automation and many other applications.
+                    </p>
+
+                    <h3>Why is AI important?</h3>
+
+                    <p>
+                        AI is becoming an important technology across
+                        education, healthcare, finance, software
+                        development and many other industries.
+                    </p>
+                `,
+                date: "Sep 28, 2026",
+                likes: 0
+            },
+
+
+            {
+                id: 2,
+                title: "Machine Learning vs AI",
+                category: "AI",
+                author: "AI TechHub",
+                image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=900&q=80",
+                description: "Understand the difference between Artificial Intelligence and Machine Learning.",
+                content: `
+                    <p>
+                        Artificial Intelligence is the broader concept
+                        of creating systems that demonstrate intelligent
+                        behavior.
+                    </p>
+
+                    <p>
+                        Machine Learning is a branch of AI where systems
+                        learn patterns from data.
+                    </p>
+
+                    <h3>Simple Example</h3>
+
+                    <p>
+                        A spam filter can learn from previous examples
+                        of spam and normal emails and use those patterns
+                        to classify new messages.
+                    </p>
+                `,
+                date: "Sep 26, 2026",
+                likes: 0
+            },
+
+
+            {
+                id: 3,
+                title: "Python for AI Beginners",
+                category: "Programming",
+                author: "AI TechHub",
+                image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80",
+                description: "Discover why Python is widely used for Artificial Intelligence and Machine Learning.",
+                content: `
+                    <p>
+                        Python is one of the most popular programming
+                        languages used in AI and data science.
+                    </p>
+
+                    <h3>Popular Python Libraries</h3>
+
+                    <p>
+                        NumPy, Pandas, Matplotlib, Scikit-learn,
+                        TensorFlow and PyTorch are commonly used
+                        for AI-related projects.
+                    </p>
+                `,
+                date: "Sep 24, 2026",
+                likes: 0
+            },
+
+
+            {
+                id: 4,
+                title: "How AI is Changing Web Development",
+                category: "Web Development",
+                author: "AI TechHub",
+                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
+                description: "Explore how developers are using AI tools in modern web development.",
+                content: `
+                    <p>
+                        AI-assisted development tools can help developers
+                        with code generation, debugging, documentation
+                        and testing.
+                    </p>
+
+                    <p>
+                        Developers still need programming knowledge to
+                        review, test and improve generated code.
+                    </p>
+                `,
+                date: "Sep 22, 2026",
+                likes: 0
+            },
+
+
+            {
+                id: 5,
+                title: "Future of Technology",
+                category: "Technology",
+                author: "AI TechHub",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+                description: "Explore emerging technologies shaping software and digital products.",
+                content: `
+                    <p>
+                        Technology continues to evolve across areas
+                        such as AI, cloud computing, cybersecurity,
+                        robotics and software development.
+                    </p>
+
+                    <p>
+                        Students can prepare by learning strong
+                        programming fundamentals and building
+                        practical projects.
+                    </p>
+                `,
+                date: "Sep 20, 2026",
+                likes: 0
+            },
+
+
+            {
+                id: 6,
+                title: "How AI Chatbots Work",
+                category: "Technology",
+                author: "AI TechHub",
+                image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=900&q=80",
+                description: "Understand the basic concepts behind modern AI-powered chatbots.",
+                content: `
+                    <p>
+                        AI chatbots are software systems designed to
+                        communicate with users using natural language.
+                    </p>
+
+                    <p>
+                        Modern conversational AI systems process user
+                        input and generate responses using trained
+                        machine-learning models.
+                    </p>
+                `,
+                date: "Sep 18, 2026",
+                likes: 0
+            }
+
+        ];
+
+
+        /* ================= LOAD BLOGS ================= */
+
+        let userBlogs =
+            JSON.parse(
+                localStorage.getItem("userBlogs")
+            ) || [];
+
+
+        let allBlogs = [
+            ...defaultBlogs,
+            ...userBlogs
+        ];
+
+
+        let currentCategory = "All";
+
+
+        /* ================= DISPLAY BLOGS ================= */
+
+        function displayBlogs() {
+
+            const grid =
+                document.getElementById("blogGrid");
+
+            grid.innerHTML = "";
+
+            let search =
+                document
+                    .getElementById("searchInput")
+                    .value
+                    .toLowerCase();
+
+
+            let filteredBlogs =
+                allBlogs.filter(blog => {
+
+                    const matchesCategory =
+                        currentCategory === "All" ||
+                        blog.category === currentCategory;
+
+                    const matchesSearch =
+                        blog.title
+                            .toLowerCase()
+                            .includes(search) ||
+
+                        blog.description
+                            .toLowerCase()
+                            .includes(search) ||
+
+                        blog.author
+                            .toLowerCase()
+                            .includes(search);
+
+                    return (
+                        matchesCategory &&
+                        matchesSearch
+                    );
+
+                });
+
+
+            if (filteredBlogs.length === 0) {
+
+                grid.innerHTML = `
+                    <div style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:50px;
+                    ">
+                        <h2>No blogs found</h2>
+                        <p style="color:#6b7280;">
+                            Try another search or category.
+                        </p>
+                    </div>
+                `;
+
+                return;
+
+            }
+
+
+            filteredBlogs.forEach(blog => {
+
+                const card =
+                    document.createElement("article");
+
+                card.className = "blog-card";
+
+                card.innerHTML = `
+
+                    <img
+                        class="blog-image"
+                        src="${blog.image}"
+                        alt="${blog.title}"
+                        onerror="this.src='https://via.placeholder.com/900x500?text=AI+TechHub'"
+                    >
+
+                    <div class="blog-content">
+
+                        <span class="blog-category">
+                            ${blog.category}
+                        </span>
+
+                        <h3>
+                            ${blog.title}
+                        </h3>
+
+                        <p class="blog-description">
+                            ${blog.description}
+                        </p>
+
+                        <div class="author">
+                            ✍️ By ${blog.author}
+                            · ${blog.date}
+                        </div>
+
+                        <div class="blog-bottom">
+
+                            <button
+                                class="read-btn"
+                                onclick="openArticle(${blog.id})"
+                            >
+                                Read Article →
+                            </button>
+
+                            <button
+                                class="like-btn"
+                                onclick="likeBlog(${blog.id}, this)"
+                            >
+                                ❤️ ${blog.likes}
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+                grid.appendChild(card);
+
+            });
+
+
+            document.getElementById(
+                "blogCount"
+            ).textContent = allBlogs.length;
+
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        function searchBlogs() {
+
+            displayBlogs();
+
+        }
+
+
+        /* ================= CATEGORY FILTER ================= */
+
+        function filterBlogs(category, button) {
+
+            currentCategory = category;
+
+            document
+                .querySelectorAll(".category-btn")
+                .forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+            button.classList.add("active");
+
+            displayBlogs();
+
+        }
+
+
+        /* ================= SHARE MODAL ================= */
+
+        function openShareModal() {
+
+            document.getElementById(
+                "shareModal"
+            ).style.display = "block";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        function closeShareModal() {
+
+            document.getElementById(
+                "shareModal"
+            ).style.display = "none";
+
+            document.body.style.overflow = "auto";
+
+        }
+
+
+        /* ================= PUBLISH BLOG ================= */
+
+        function publishBlog(event) {
+
+            event.preventDefault();
+
+
+            const author =
+                document.getElementById(
+                    "authorName"
+                ).value.trim();
+
+            const title =
+                document.getElementById(
+                    "blogTitle"
+                ).value.trim();
+
+            const category =
+                document.getElementById(
+                    "blogCategory"
+                ).value;
+
+            let image =
+                document.getElementById(
+                    "blogImage"
+                ).value.trim();
+
+            const description =
+                document.getElementById(
+                    "blogDescription"
+                ).value.trim();
+
+            const content =
+                document.getElementById(
+                    "blogContent"
+                ).value.trim();
+
+
+            if (!image) {
+
+                image =
+                    "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80";
+
+            }
+
+
+            const newBlog = {
+
+                id: Date.now(),
+
+                title: title,
+
+                category: category,
+
+                author: author,
+
+                image: image,
+
+                description: description,
+
+                content:
+                    "<p>" +
+                    content.replace(
+                        /\n/g,
+                        "</p><p>"
+                    ) +
+                    "</p>",
+
+                date:
+                    new Date().toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                        }
+                    ),
+
+                likes: 0
+
+            };
+
+
+            userBlogs.unshift(newBlog);
+
+
+            localStorage.setItem(
+                "userBlogs",
+                JSON.stringify(userBlogs)
+            );
+
+
+            allBlogs = [
+                ...defaultBlogs,
+                ...userBlogs
+            ];
+
+
+            document
+                .getElementById("blogForm")
+                .reset();
+
+
+            closeShareModal();
+
+
+            currentCategory = "All";
+
+            document
+                .querySelectorAll(".category-btn")
+                .forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+            document
+                .querySelector(".category-btn")
+                .classList.add("active");
+
+
+            displayBlogs();
+
+
+            document
+                .getElementById("blogs")
+                .scrollIntoView();
+
+
+            alert(
+                "🎉 Your blog has been published successfully!"
+            );
+
+        }
+
+
+        /* ================= READ ARTICLE ================= */
+
+        function openArticle(id) {
+
+            const blog =
+                allBlogs.find(
+                    item => item.id === id
+                );
+
+            if (!blog) return;
+
+
+            document.getElementById(
+                "articleContent"
+            ).innerHTML = `
+
+                <span class="blog-category">
+                    ${blog.category}
+                </span>
+
+                <h2>
+                    ${blog.title}
+                </h2>
+
+                <p>
+                    <strong>
+                        ✍️ By ${blog.author}
+                    </strong>
+                    · ${blog.date}
+                </p>
+
+                <img
+                    src="${blog.image}"
+                    style="
+                        width:100%;
+                        max-height:400px;
+                        object-fit:cover;
+                        border-radius:10px;
+                        margin:15px 0 25px;
+                    "
+                >
+
+                ${blog.content}
+
+            `;
+
+
+            document.getElementById(
+                "articleModal"
+            ).style.display = "block";
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        /* ================= CLOSE ARTICLE ================= */
+
+        function closeArticle() {
+
+            document.getElementById(
+                "articleModal"
+            ).style.display = "none";
+
+            document.body.style.overflow = "auto";
+
+        }
+
+
+        /* ================= LIKE ================= */
+
+        function likeBlog(id, button) {
+
+            const blog =
+                allBlogs.find(
+                    item => item.id === id
+                );
+
+            if (!blog) return;
+
+
+            blog.likes++;
+
+            button.classList.add("liked");
+
+            button.innerHTML =
+                "❤️ " + blog.likes;
+
+
+            const userBlog =
+                userBlogs.find(
+                    item => item.id === id
+                );
+
+
+            if (userBlog) {
+
+                userBlog.likes =
+                    blog.likes;
+
+                localStorage.setItem(
+                    "userBlogs",
+                    JSON.stringify(userBlogs)
+                );
+
+            }
+
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        function sendContact(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById(
+                    "contactName"
+                ).value;
+
+
+            alert(
+                "Thank you, " +
+                name +
+                "! Your message has been received."
+            );
+
+
+            event.target.reset();
+
+        }
+
+
+        /* ================= CLOSE MODALS ================= */
+
+        window.onclick = function(event) {
+
+            const shareModal =
+                document.getElementById(
+                    "shareModal"
+                );
+
+            const articleModal =
+                document.getElementById(
+                    "articleModal"
+                );
+
+
+            if (
+                event.target === shareModal
+            ) {
+
+                closeShareModal();
+
+            }
+
+
+            if (
+                event.target === articleModal
+            ) {
+
+                closeArticle();
+
+            }
+
+        };
+
+
+        /* ================= MOBILE MENU ================= */
+
+        function toggleMenu() {
+
+            document
+                .getElementById("navMenu")
+                .classList.toggle("active");
+
+        }
+
+
+        /* ================= INITIAL LOAD ================= */
+
+        displayBlogs();
+
+    </script>
+
+
+</body>
+
+</html>
+```
